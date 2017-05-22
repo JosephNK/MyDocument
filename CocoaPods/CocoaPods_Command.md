@@ -19,3 +19,7 @@ pod update Pod이름 (지정한 Pod 업데이트)
 ```
 pod lib lint (podspec 점검)
 ```
+
+```
+pod search Pod이름
+```
