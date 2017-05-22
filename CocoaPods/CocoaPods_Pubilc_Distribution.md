@@ -1,8 +1,24 @@
 ### CocoaPods Pubilc 배포 방법
 
-Xcode CocoaFramework 프로젝트 생성  
-MyLibrary.podspec 파일 생성  
-podspec 파일 설정 예시
+(1) Cocoa touch framework 생성 
+ 
+``` 
+Xcode Cocoa touch framework 생성
+```
+
+(2) podspec 생성  
+
+```
+pod spec create 프로젝트명
+```
+
+(3) podspec 작성
+
+```
+open -a Xcode 프로젝트명.podspec
+```
+
+(4) podspec 파일 설정 예시
 
 ```
 #
@@ -63,24 +79,34 @@ Pod::Spec.new do |s|
 end
 ```
 
-spec 문서가 잘 작성되었는지 테스트 하는 명령어
+(5) podspec 점검
 
 ```
 pod lib lint
 ```
 
-생성한 프로젝트와 podspec 파일과 함께 git에 업로드
-
-(git 으로 프로젝트로 업로드 할때 주의점은 Tag와 Spec에서 작성한 s.version 하고 동일해야함)
+(6) 생성한 프로젝트와 podspec 파일과 함께 git에 업로드 (Git Push)
 
 ```
-pod trunk push MyLibrary.podspec
+git init
+git add .  
+git commit -m "Initial commit"
+git tag 0.1.0
+git remote add origin https://github.com/JosephNK/JNKSwiftLib.git
+git push -u origin master --tags
 ```
 
-사용시
+(7) CocoaPod trunk 생성 (http://guides.cocoapods.org/making/getting-setup-with-trunk.html)
 
 ```
-pod 'MyLibrary'
+pod trunk register jepark@mhand.net JELibrarySampleTrunk --description='je-macbook pro'  
+(명령어 실행 : pod trunk register 본인이메일계정 Trunk이름 --description='세션 identify 설명')
+```
+
+(8) 배포 (주의: git 으로 프로젝트로 업로드 할때 주의점은 Tag와 Spec에서 작성한 s.version 하고 동일해야함)
+
+```
+pod trunk push MyLibrary.podspec --verbose
 ```
 
 참고사이트  

@@ -1,8 +1,24 @@
 ### CocoaPods Privite 배포 방법
 
-Xcode CocoaFramework 프로젝트 생성  
-MyLibrary.podspec 파일 생성  
-podspec 파일 설정 예시
+(1) Cocoa touch framework 생성 
+ 
+``` 
+Xcode Cocoa touch framework 생성
+```
+
+(2) podspec 생성  
+
+```
+pod spec create 프로젝트명
+```
+
+(3) podspec 작성
+
+```
+open -a Xcode 프로젝트명.podspec
+```
+
+(4) podspec 파일 설정 예시
 
 ```
 #
@@ -63,41 +79,41 @@ Pod::Spec.new do |s|
 end
 ```
 
-spec 문서가 잘 작성되었는지 테스트 하는 명령어
+(5) podspec 점검
 
 ```
 pod lib lint
 ```
 
-생성한 프로젝트와 podspec 파일과 함께 git에 업로드
+(6) 생성한 프로젝트와 podspec 파일과 함께 git에 업로드 (Git Push)
 
-(git 으로 프로젝트로 업로드 할때 주의점은 Tag와 Spec에서 작성한 s.version 하고 동일해야함)
+```
+git init
+git add .  
+git commit -m "Initial commit"
+git tag 0.1.0
+git remote add origin https://github.com/JosephNK/JNKSwiftLib.git
+git push -u origin master --tags
+```
 
-다음은 Private 저장소를 생성
+(7) private repo 생성
 
 ```
 pod repo add REPO_NAME 원격저장소URL
+ex) pod repo add MyLibrary https://~/MyLibrary.git
 ```
 
+(8) private repo 확인
+
 ```
-pod repo add MyLibrary https://~/MyLibrary.git
+/Users/honggildong/.cocoapods/repos/MyLibrary
+ls ~/.cocoapods/repos/
 ```
 
-
-/Users/honggildong/.cocoapods/repos/MyLibrary  
-위 경로에 위 명령어를 통해서 만들어진 프로젝트가 생성 확인.
-
-그리고 Git에서 배포했던 0.1.0 버전을 Private 저장소로 배포합니다.
-명령어 실행 : pod repo push 저장소이름 .podspec파일
+(9) 배포 (주의: git 으로 프로젝트로 업로드 할때 주의점은 Tag와 Spec에서 작성한 s.version 하고 동일해야함)
 
 ```
 pod repo push MyLibrary MyLibrary.podspec
-```
-
-사용시
-
-```
-pod 'MyLibrary'
 ```
 
 참고사이트  
