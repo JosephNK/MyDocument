@@ -116,6 +116,10 @@ ls ~/.cocoapods/repos/
 pod repo push MyLibrary MyLibrary.podspec
 ```
 
+```
+pod repo push --allow-warning MyLibrary MyLibrary.podspec (# Warning Ignore)
+```
+
 참고사이트  
 [Raywenderlich create-cocoapod-swift](https://www.raywenderlich.com/99386/create-cocoapod-swift)  
 [Raywenderlich create-a-framework-for-ios](https://www.raywenderlich.com/65964/create-a-framework-for-ios)  
