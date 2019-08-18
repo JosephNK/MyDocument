@@ -26,7 +26,33 @@ $ rm -rf node_modules/ package-lock.json yarn.lock
 $ yarn install
 ```
 
-### edit scripts in package.json
+### Edit src/App.tsx
+
+```
+import React, { Component } from 'react';
+import './assets/fomantic/dist/semantic.css';
+import { Container, Header, Button } from 'semantic-ui-react';
+
+class App extends Component {
+  render() {
+    return (
+      <Container>
+        <Header>
+          Fomantic-UI & Semantic-UI-React
+        </Header>
+        <div>
+          <Button primary>Primary</Button>
+          <Button secondary>Secondary</Button>
+        </div>
+      </Container>
+    );
+  }
+}
+
+export default App;
+```
+
+### Edit scripts in package.json
 
 ```
 "scripts": {
