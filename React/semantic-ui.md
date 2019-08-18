@@ -22,9 +22,7 @@ $ yarn start
 
 error: could not find a declaration file for module 'react'
 
-$ rm -rf node_modules/
-$ rm -rf package-lock.json
-$ rm -rf yarn.lock
+$ rm -rf node_modules/ package-lock.json yarn.lock
 $ yarn install
 ```
 
