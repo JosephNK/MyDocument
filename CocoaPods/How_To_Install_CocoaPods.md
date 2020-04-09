@@ -14,6 +14,10 @@ or
 sudo gem install -n /usr/local/bin cocoapods --pre --verbose // pre-release version
 ```
 
+```
+sudo gem install -n /usr/local/bin cocoapods -v 1.8.4 --verbose
+```
+
 CocoaPods 설치
 
 ```
